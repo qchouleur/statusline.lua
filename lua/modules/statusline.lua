@@ -18,8 +18,8 @@ local git_branch = require('sections._git_branch')
 local lsp = require('sections._lsp')
 local signify = require('sections._signify')
 local bufmod = require('sections._bufmodified')
-local bufname = require('sections._bufname')
 local buficon = require('sections._buficon')
+local bufname = require('sections._bufname')
 local editable = require('sections._bufeditable')
 local filesize = require('sections._filesize')
 local M = {}
@@ -111,8 +111,8 @@ function M.activeLine()
 		.. right_separator
 		.. space
 	-- Component: Filetype and icons
-	statusline = statusline .. '%#Status_Line#' .. bufname.get_buffer_name()
-	statusline = statusline .. buficon.get_file_icon()
+	statusline = statusline .. '%#Status_Line#' .. buficon.get_file_icon()
+	statusline = statusline .. bufname.get_buffer_name()
 
 	-- Component: errors and warnings -> requires ALE
 	-- TODO: [beauwilliams] --> IMPLEMENT A LUA VERSION OF BELOW VIMSCRIPT FUNCS
@@ -132,7 +132,6 @@ function M.activeLine()
 	statusline = statusline .. signify.signify()
 
 	-- Component: git branch name -> requires FUGITIVE
-	statusline = statusline .. git_branch.branch()
 
 	--Component: Lsp Progress
 	-- if lsp.lsp_progress()~= nil then
@@ -141,6 +140,8 @@ function M.activeLine()
 
 	-- Alignment to left
 	statusline = statusline .. '%='
+
+	statusline = statusline .. git_branch.branch()
 
 	-- Component: LSP CURRENT FUCTION --> Requires LSP
 	statusline = statusline .. '%#Statusline_LSP_Func# ' .. lsp.current_function()

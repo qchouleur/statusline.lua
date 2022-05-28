@@ -3,7 +3,7 @@ local api = vim.api
 local devicons = require('tables._icons')
 local icon
 local file_name
-local space = ' '
+local space = '  '
 function M.get_file_icon(bufnr)
 	--NOTE: Rather than use our internal bufname object
 	--we use full filename to detect terminal windows

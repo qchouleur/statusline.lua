@@ -1,6 +1,6 @@
 local M = {}
 local git_branch
-local space = ' '
+local space = '  '
 
 -- os specific path separator
 local sep = package.config:sub(1, 1)

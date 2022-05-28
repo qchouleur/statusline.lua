@@ -9,7 +9,7 @@ local icons = require('tables._icons')
 local left_separator = ''
 local right_separator = ''
 -- Blank Between Components
-local space = ' '
+local space = '  '
 
 local TrimmedDirectory = function(dir)
 	local home = os.getenv('HOME')
